@@ -1,22 +1,21 @@
 import express from "express"
 import dotenv from "dotenv"
 import CreateError from "./utils/middleware/throwError.mjs"
-import path from "path"
+
 import expressEjsLayouts from "express-ejs-layouts"
 
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
 import projectRouter from "./route/project-router.mjs"
+import resolvePath from "./utils/global/pathResolve.mjs"
 
+import path from "path"
 import { fileURLToPath } from 'url';
-
-
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename); 
 
-const viewsDirectory = path.resolve(__dirname, 'views');
-const assets = path.resolve(__dirname, 'assets');
+// const __dirname = path.dirname(__filename); 
+
 
 
 
@@ -26,9 +25,9 @@ const port = process.env.port || 3000
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use("/assets", express.static(assets))
+app.use("/assets", express.static(path.resolve("assets")))
 app.set("view engine", "ejs")
-app.set("views", viewsDirectory)
+app.set("views", path.resolve("views"))
 app.set("view cache", true)
 
 app.use(expressEjsLayouts)
