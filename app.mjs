@@ -16,6 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); 
 
 const viewsDirectory = path.resolve(__dirname, 'views');
+const assets = path.resolve(__dirname, 'assets');
 
 
 
@@ -25,7 +26,7 @@ const port = process.env.port || 3000
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use("/assets", express.static("assets"))
+app.use("/assets", express.static(assets))
 app.set("view engine", "ejs")
 app.set("views", viewsDirectory)
 app.set("view cache", true)
