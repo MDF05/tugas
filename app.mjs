@@ -8,6 +8,7 @@ import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
 import projectRouter from "./route/project-router.mjs"
+import ejs from "ejs"
 
 dotenv.config()
 const app = express()
@@ -16,7 +17,7 @@ const port = process.env.port || 3000
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use("/assets", express.static("assets"))
-app.set("view engine", "ejs")
+app.set("view engine", ejs)
 app.set("views", "views")
 app.set("view cache", true)
 
