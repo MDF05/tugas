@@ -8,13 +8,8 @@ import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
 import projectRouter from "./route/project-router.mjs"
-import resolvePath from "./utils/global/pathResolve.mjs"
-
 import path from "path"
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
 
-// const __dirname = path.dirname(__filename); 
 
 
 
